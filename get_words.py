@@ -1,10 +1,11 @@
 import sqlite3
 import random
 
-connection = sqlite3.connect("database.db")
-cur = connection.cursor()
+
 
 def get_word(difficulty: int) -> str:
+    connection = sqlite3.connect("database.db")
+    cur = connection.cursor()
     if difficulty == 1:
         word_list = cur.execute("Select word from words where letters < 5").fetchall()
     elif difficulty == 2:
